@@ -1,0 +1,26 @@
+[
+    {
+        "artista": "The Beatles",
+        "cancion": "Hey Jude"
+    },
+    {
+        "artista": "Queen",
+        "cancion": "Bohemian Rhapsody"
+    },
+    {
+        "artista": "Nirvana",
+        "cancion": "Smells Like Teen Spirit"
+    },
+    {
+        "artista": "Michael Jackson",
+        "cancion": "Billie Jean"
+    },
+    {
+        "artista": "Adele",
+        "cancion": "Rolling in the Deep"
+    },
+    {
+        "artista": "Beyoncé",
+        "cancion": "Halo"
+    }
+]

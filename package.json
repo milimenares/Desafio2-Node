@@ -1,0 +1,22 @@
+{
+  "name": "prueba-express",
+  "version": "0.0.1",
+  "main": "server.js",
+  "type": "module",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "standard": "^17.1.2"
+  }
+}
