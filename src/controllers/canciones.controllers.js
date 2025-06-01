@@ -38,4 +38,31 @@ const crearCanciones = (req, res) => {
   }
 }
 
-export { getHtml, getCanciones, crearCanciones }
+const updateCanciones = (req, res) => {
+  try {
+    const id = req.params.id
+    const { titulo, artista, tono } = req.body
+    
+    let canciones = JSON.parse(fs.readFileSync('repertorio.json', 'utf-8'))
+    const cancion = canciones.find((c) => c.id === id)
+    
+    if (!cancion) {
+      res.status(404).send('Canción no encontrada')
+    }
+
+    canciones = canciones.map((cancion) => {
+      if (cancion.id === id) {
+        return { ...cancion, titulo, artista, tono }
+      }
+      return cancion
+    })
+
+    fs.writeFileSync('repertorio.json', JSON.stringify(canciones))
+    res.send('Canción actualizada con éxito')
+  } catch (error) {
+    console.error('Error al actualizar la canción', error)
+    res.json({ message: 'El recurso no está disponible' })
+  }
+}
+
+export { getHtml, getCanciones, crearCanciones, updateCanciones }
