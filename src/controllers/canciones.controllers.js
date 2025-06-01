@@ -18,11 +18,11 @@ const getCanciones = (req, res) => {
 
 const crearCanciones = (req, res) => {
   try {
-    const { cancion, artista, tono } = req.body
+    const { titulo, artista, tono } = req.body
     const id = crypto.randomUUID()
     const nuevaCancion = {
       id,
-      cancion,
+      titulo,
       artista,
       tono
     }
