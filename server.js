@@ -1,6 +1,6 @@
 import express from 'express'
 import 'dotenv/config'
-import { getHtml, getCanciones, crearCanciones } from './src/controllers/canciones.controllers.js'
+import { getHtml, getCanciones, crearCanciones, updateCanciones } from './src/controllers/canciones.controllers.js'
 
 const app = express()
 
@@ -13,5 +13,7 @@ app.get('/', getHtml)
 app.get('/canciones', getCanciones)
 
 app.post('/canciones', crearCanciones)
+
+app.put('/canciones/:id', updateCanciones)
 
 app.listen(PORT, console.log(`Servidor andando http://localhost:${PORT}`))
