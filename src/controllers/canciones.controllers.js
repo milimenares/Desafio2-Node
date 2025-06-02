@@ -65,4 +65,23 @@ const updateCanciones = (req, res) => {
   }
 }
 
-export { getHtml, getCanciones, crearCanciones, updateCanciones }
+const deleteCanciones = (req, res) => {
+  try {
+    const id = req.params.id
+    let canciones = JSON.parse(fs.readFileSync('repertorio.json', 'utf-8'))
+
+    const cancion = canciones.find((c) => c.id === id)
+    if (!cancion) {
+      res.status(404).send('Canción no encontrada')
+    }
+
+    canciones = canciones.filter((c) => c.id !== id)
+    fs.writeFileSync('repertorio.json', JSON.stringify(canciones))
+    res.send('Canción eliminada con éxito')
+  } catch (error) {
+    console.error('Error al eliminar la canción', error)
+    res.json({ message: 'El recurso no está disponible' })
+  }
+}
+
+export { getHtml, getCanciones, crearCanciones, updateCanciones, deleteCanciones }
