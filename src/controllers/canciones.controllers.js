@@ -13,6 +13,7 @@ const getCanciones = (req, res) => {
     res.json(canciones)
   } catch (error) {
     console.error('Error al cargar el repertorio:', error)
+    res.json({ message: 'El recurso no está disponible' })
   }
 }
 
@@ -27,14 +28,13 @@ const crearCanciones = (req, res) => {
       tono
     }
     const canciones = JSON.parse(fs.readFileSync('repertorio.json', 'utf-8'))
-    console.log('Antes:', canciones)
     canciones.push(nuevaCancion)
-    console.log('Después:', canciones)
 
     fs.writeFileSync('repertorio.json', JSON.stringify(canciones))
     res.send('Canción creada con éxito')
   } catch (error) {
     console.error('Error al crear canciones', error)
+    res.json({ message: 'El recurso no está disponible' })
   }
 }
 
